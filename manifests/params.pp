@@ -98,6 +98,7 @@ class mysql::params {
       $ssl_cert                = '/etc/mysql/server-cert.pem'
       $ssl_key                 = '/etc/mysql/server-key.pem'
       $tmpdir                  = '/tmp'
+      $managed_dirs            = undef
       # mysql::bindings
       $java_package_name       = 'mysql-connector-java'
       $perl_package_name       = 'perl-DBD-MySQL'
@@ -166,6 +167,7 @@ class mysql::params {
       $ssl_cert            = '/etc/mysql/server-cert.pem'
       $ssl_key             = '/etc/mysql/server-key.pem'
       $tmpdir              = '/tmp'
+      $managed_dirs        = undef
       # mysql::bindings
       $java_package_name   = 'mysql-connector-java'
       $perl_package_name   = 'perl-DBD-mysql'
@@ -213,6 +215,8 @@ class mysql::params {
       $ssl_cert                = '/etc/mysql/server-cert.pem'
       $ssl_key                 = '/etc/mysql/server-key.pem'
       $tmpdir                  = '/tmp'
+      $managed_dirs            = ['tmpdir','basedir','datadir','innodb_data_home_dir','innodb_log_group_home_dir','innodb_undo_directory','innodb_tmpdir']
+
       # mysql::bindings
       $java_package_name   = 'libmysql-java'
       $perl_package_name   = 'libdbd-mysql-perl'
@@ -252,6 +256,7 @@ class mysql::params {
       $ssl_cert                = '/etc/mysql/server-cert.pem'
       $ssl_key                 = '/etc/mysql/server-key.pem'
       $tmpdir                  = '/tmp'
+      $managed_dirs            = undef
       # mysql::bindings
       $java_package_name       = 'mysql-connector-java'
       $perl_package_name       = 'perl-dbd-mysql'
@@ -277,6 +282,7 @@ class mysql::params {
       $ssl_cert            = '/etc/mysql/server-cert.pem'
       $ssl_key             = '/etc/mysql/server-key.pem'
       $tmpdir              = '/tmp'
+      $managed_dirs        = undef
       # mysql::bindings
       $java_package_name   = 'dev-java/jdbc-mysql'
       $perl_package_name   = 'dev-perl/DBD-mysql'
@@ -302,6 +308,7 @@ class mysql::params {
       $ssl_cert            = undef
       $ssl_key             = undef
       $tmpdir              = '/tmp'
+      $managed_dirs        = undef
       # mysql::bindings
       $java_package_name   = 'databases/mysql-connector-java'
       $perl_package_name   = 'p5-DBD-mysql'
@@ -330,6 +337,7 @@ class mysql::params {
       $ssl_cert            = undef
       $ssl_key             = undef
       $tmpdir              = '/tmp'
+      $managed_dirs        = undef
       # mysql::bindings
       $java_package_name   = undef
       $perl_package_name   = 'p5-DBD-mysql'
@@ -356,6 +364,7 @@ class mysql::params {
       $ssl_cert            = undef
       $ssl_key             = undef
       $tmpdir              = '/tmp'
+      $managed_dirs        = undef
       # mysql::bindings
       $java_package_name   = undef
       $perl_package_name   = undef
@@ -385,6 +394,7 @@ class mysql::params {
           $ssl_cert            = '/etc/mysql/server-cert.pem'
           $ssl_key             = '/etc/mysql/server-key.pem'
           $tmpdir              = '/tmp'
+          $managed_dirs        = undef
           $java_package_name   = undef
           $perl_package_name   = 'perl-dbd-mysql'
           $php_package_name    = 'php7-mysqlnd'
@@ -410,6 +420,7 @@ class mysql::params {
           $ssl_cert            = '/etc/mysql/server-cert.pem'
           $ssl_key             = '/etc/mysql/server-key.pem'
           $tmpdir              = '/tmp'
+          $managed_dirs        = undef
           # mysql::bindings
           $java_package_name   = 'mysql-connector-java'
           $perl_package_name   = 'perl-DBD-MySQL'
