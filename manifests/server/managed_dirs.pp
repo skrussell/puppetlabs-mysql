@@ -5,7 +5,7 @@
 #
 class mysql::server::managed_dirs {
 
-  $options = $mysql::server::options
+  $options = $mysql::server::_options
   $includedir = $mysql::server::includedir
   $managed_dirs = $mysql::server::managed_dirs
 
