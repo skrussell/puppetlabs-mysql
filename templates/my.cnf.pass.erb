@@ -7,7 +7,7 @@ host=localhost
 <% unless scope.lookupvar('mysql::server::root_password') == 'UNSET' -%>
 password='<%= scope.lookupvar('mysql::server::root_password') %>'
 <% end -%>
-<% if @options[section]['socket'] -%>
+<% if @options[section] and @options[section]['socket'] -%>
 socket=<%= @options[section]['socket'] %>
 <% else -%>
 socket=<%= @options['mysqld']['socket'] %>
