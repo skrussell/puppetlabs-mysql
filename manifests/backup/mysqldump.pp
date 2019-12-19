@@ -3,35 +3,38 @@
 # @api private
 #
 class mysql::backup::mysqldump (
-  $backupuser         = '',
-  $backuppassword     = '',
-  $backupdir          = '',
-  $maxallowedpacket   = '1M',
-  $backupdirmode      = '0700',
-  $backupdirowner     = 'root',
-  $backupdirgroup     = $mysql::params::root_group,
-  $backupcompress     = true,
-  $backuprotate       = 30,
-  $backupmethod       = 'mysqldump',
-  $ignore_events      = true,
-  $delete_before_dump = false,
-  $backupdatabases    = [],
-  $file_per_database  = false,
-  $include_triggers   = false,
-  $include_routines   = false,
-  $ensure             = 'present',
-  $time               = ['23', '5'],
-  $prescript          = false,
-  $postscript         = false,
-  $execpath           = '/usr/bin:/usr/sbin:/bin:/sbin',
-  $optional_args      = [],
-  $mysqlbackupdir_ensure = 'directory',
-  $mysqlbackupdir_target = undef,
+  $backupuser               = '',
+  $backuppassword           = '',
+  $backupdir                = '',
+  $maxallowedpacket         = '1M',
+  $backupdirmode            = '0700',
+  $backupdirowner           = 'root',
+  $backupdirgroup           = $mysql::params::root_group,
+  $backupcompress           = true,
+  $backuprotate             = 30,
+  $backupmethod             = 'mysqldump',
+  $backup_success_file_path = undef,
+  $ignore_events            = true,
+  $delete_before_dump       = false,
+  $backupdatabases          = [],
+  $file_per_database        = false,
+  $include_triggers         = false,
+  $include_routines         = false,
+  $ensure                   = 'present',
+  $time                     = ['23', '5'],
+  $prescript                = false,
+  $postscript               = false,
+  $execpath                 = '/usr/bin:/usr/sbin:/bin:/sbin',
+  $optional_args            = [],
+  $mysqlbackupdir_ensure    = 'directory',
+  $mysqlbackupdir_target    = undef,
 ) inherits mysql::params {
 
-  if $backupcompress {
-    ensure_packages(['bzip2'])
-    Package['bzip2'] -> File['mysqlbackup.sh']
+  unless $::osfamily == 'FreeBSD' {
+    if $backupcompress {
+      ensure_packages(['bzip2'])
+      Package['bzip2'] -> File['mysqlbackup.sh']
+    }
   }
 
   mysql_user { "${backupuser}@localhost":
