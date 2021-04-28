@@ -24,6 +24,7 @@ class mysql::client (
   $install_options = undef,
   $package_ensure  = $mysql::params::client_package_ensure,
   $package_manage  = $mysql::params::client_package_manage,
+  $package_mark    = undef,
   $package_name    = $mysql::params::client_package_name,
 ) inherits mysql::params {
 
